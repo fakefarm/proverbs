@@ -11,7 +11,7 @@ gem 'neat'
 gem 'bitters'
 gem 'refills'
 
-
+gem 'devise'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
