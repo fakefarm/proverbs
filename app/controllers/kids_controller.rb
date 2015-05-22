@@ -10,7 +10,7 @@ class KidsController < ApplicationController
   def show
     @verses = @kid.memorizeds
     @current = if @verses.last
-        Verse.find(@verses.last.id + 1)
+        Verse.find(@verses.max.verse_id + 1)
       else
         Verse.find_by_verse(1)
       end
@@ -27,7 +27,7 @@ class KidsController < ApplicationController
 
     respond_to do |format|
       if @kid.save
-        format.html { redirect_to @kid, notice: 'Kid was successfully created.' }
+        format.html { redirect_to @kid, notice: "#{@kid.name} has begun the journey." }
         format.json { render :show, status: :created, location: @kid }
       else
         format.html { render :new }

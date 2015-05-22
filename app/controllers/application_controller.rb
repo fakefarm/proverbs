@@ -4,7 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(user)
-    redirect parent_path(user.parent_id)
+    if user.parent_id
+      redirect parent_path(user.parent_id)
+    else
+      redirect new_parent_path
+    end
   end
 
   def check_logged_in

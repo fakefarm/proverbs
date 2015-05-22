@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Proverbs</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -15,9 +15,14 @@
 <% if user_signed_in? %>
   <ul>
     <% unless current_user.parent.nil? %>
-      <li><%= link_to 'my kiddos', parent_path(current_user.parent.id) %></li>
+      <li><%= link_to 'all kids', parent_path(current_user.parent.id) %></li>
+      <% unless current_user.parent.kids.nil? %>
+        <% current_user.parent.kids.each do |kid| %>
+          <li><%= link_to kid.name, kid_path(kid) %></li>
+        <% end %>
+      <% end %>
     <% end %>
-    <li><%= link_to 'verses', verses_path %></li>
+    <li><%= link_to 'proverbs', verses_path %></li>
     <li><%= link_to 'sign out', destroy_user_session_path, method: "DELETE" %></li>
   </ul>
 <% else %>

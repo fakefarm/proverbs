@@ -24,7 +24,7 @@ class ParentsController < ApplicationController
 
     respond_to do |format|
       if @parent.save
-        format.html { redirect_to @parent, notice: 'Parent was successfully created.' }
+        format.html { redirect_to @parent, notice: "Welcome, #{@parent.name}!" }
         format.json { render :show, status: :created, location: @parent }
       else
         format.html { render :new }
