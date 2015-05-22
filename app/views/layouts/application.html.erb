@@ -14,10 +14,10 @@
 
 <% if user_signed_in? %>
   <ul>
-    <li><%= link_to 'new_parent', new_parent_path %></li>
-    <li><%= link_to 'parents', parents_path %></li>
+    <% unless current_user.parent.nil? %>
+      <li><%= link_to 'my kiddos', parent_path(current_user.parent.id) %></li>
+    <% end %>
     <li><%= link_to 'verses', verses_path %></li>
-    <li><%= link_to 'kids', kids_path %></li>
     <li><%= link_to 'sign out', destroy_user_session_path, method: "DELETE" %></li>
   </ul>
 <% else %>

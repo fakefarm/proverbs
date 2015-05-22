@@ -1,14 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= @parent.name %></h2>
-
-<h3>kids</h3>
-<ul>
-  <% @kids.each do |k| %>
-    <li><%= link_to k.name, kid_path(k) %></li>
-  <% end %>
-  <%= link_to 'new kid', new_kid_path %>
-</ul>
-
-<%= link_to 'Edit', edit_parent_path(@parent) %> |
-<%= link_to 'Back', parents_path %>
+<% @kids.each do |k| %>
+  <h2><%= link_to k.name, kid_path(k) %></h2>
+<% end %>
+<%= link_to 'new kid', new_kid_path %>

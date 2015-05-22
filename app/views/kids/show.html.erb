@@ -1,15 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Parent:</strong>
-  <%= "Dave" if @kid.parent_id == 1%>
-</p>
-
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @kid.name %>
-</p>
-<h2>Current Verse</h2>
+</h1>
+<b>Current Verse</b>
 <p><b><%= @current.verse %></b> <%= @current.text %></p>
 <%= form_tag("/memorizeds", method: :post) do %>
   <%= hidden_field_tag 'kid_id', @kid.id %>
@@ -21,5 +13,3 @@
 <% @verses.each do |v| %>
 <p><b><%= v.verse.verse %></b> <%= v.verse.text %></p>
 <% end %>
-<%= link_to 'Edit', edit_kid_path(@kid) %> |
-<%= link_to 'Back', kids_path %>

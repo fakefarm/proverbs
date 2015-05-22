@@ -1,15 +1,12 @@
 class KidsController < ApplicationController
   before_action :set_kid, only: [:show, :edit, :update, :destroy]
+  before_action :checky_cheese_parent_check, only: [:show]
   before_action :check_logged_in
 
-  # GET /kids
-  # GET /kids.json
   def index
     @kids = Kid.all
   end
 
-  # GET /kids/1
-  # GET /kids/1.json
   def show
     @verses = @kid.memorizeds
     @current = if @verses.last
@@ -19,17 +16,12 @@ class KidsController < ApplicationController
       end
   end
 
-  # GET /kids/new
   def new
     @kid = Kid.new
   end
 
-  # GET /kids/1/edit
-  def edit
-  end
+  def edit; end
 
-  # POST /kids
-  # POST /kids.json
   def create
     @kid = Kid.new(kid_params)
 
@@ -44,8 +36,6 @@ class KidsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /kids/1
-  # PATCH/PUT /kids/1.json
   def update
     respond_to do |format|
       if @kid.update(kid_params)
@@ -58,8 +48,6 @@ class KidsController < ApplicationController
     end
   end
 
-  # DELETE /kids/1
-  # DELETE /kids/1.json
   def destroy
     @kid.destroy
     respond_to do |format|
@@ -68,14 +56,18 @@ class KidsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_kid
-      @kid = Kid.find(params[:id])
+private
+  def checky_cheese_parent_check
+    if @kid.parent_id != current_user.parent.id
+      redirect_to parent_path(current_user.parent), notice: "You're not a kidnapper, are YOU?!????"
     end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def kid_params
-      params.require(:kid).permit(:parent_id, :name)
-    end
+  def set_kid
+    @kid = Kid.find(params[:id])
+  end
+
+  def kid_params
+    params.require(:kid).permit(:parent_id, :name)
+  end
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :verses
   resources :kids
   resources :memorizeds
-  resources :parents
+  resources :parents, except: [:index]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
