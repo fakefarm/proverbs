@@ -1,5 +1,6 @@
 class KidsController < ApplicationController
   before_action :set_kid, only: [:show, :edit, :update, :destroy]
+  before_action :check_logged_in
 
   # GET /kids
   # GET /kids.json

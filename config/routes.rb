@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  root 'pages#index'
+  devise_for :users, controllers: { registrations: 'registrations'}
+
   resources :verses
   resources :kids
   resources :memorizeds
   resources :parents
 
-  root 'pages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
