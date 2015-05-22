@@ -1,31 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Verses</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Verse</th>
-      <th>Text</th>
-      <th>Chapter</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<h1>Proverbs</h1>
+<div class="l-wrapper">
     <% @verses.each do |verse| %>
-      <tr>
-        <td><%= verse.verse %></td>
-        <td><%= verse.text %></td>
-        <td><%= verse.chapter %></td>
-        <td><%= link_to 'Show', verse %></td>
-        <td><%= link_to 'Edit', edit_verse_path(verse) %></td>
-        <td><%= link_to 'Destroy', verse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="verse-wrapper">
+        <span class="verse"><%= verse.verse %></span>
+        <span class="text"><%= verse.text %></span>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Verse', new_verse_path %>
+</div>
