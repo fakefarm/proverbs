@@ -39,7 +39,7 @@ class KidsController < ApplicationController
   def update
     respond_to do |format|
       if @kid.update(kid_params)
-        format.html { redirect_to @kid, notice: 'Kid was successfully updated.' }
+        format.html { redirect_to @kid, notice: "#{@kid.name}, you bless my heart..." }
         format.json { render :show, status: :ok, location: @kid }
       else
         format.html { render :edit }

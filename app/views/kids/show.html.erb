@@ -1,6 +1,4 @@
-<h1>
-  <%= @kid.name %>
-</h1>
+<h1><%= @kid.name %></h1>
 <b>Current Verse</b>
 <p><b><%= @current.verse %></b> <%= @current.text %></p>
 <%= form_tag("/memorizeds", method: :post) do %>

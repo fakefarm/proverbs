@@ -2,9 +2,18 @@
 <html>
 <head>
   <title>Proverbs</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <link rel="shortcut icon" href="../favicon.ico"> -->
+    <!-- <meta name="author" content="Dave Woodall" /> -->
+    <!-- <meta name="description" content=""> -->
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
 </head>
 <body>
 
@@ -15,13 +24,14 @@
 <% if user_signed_in? %>
   <ul>
     <% unless current_user.parent.nil? %>
-      <li><%= link_to 'all kids', parent_path(current_user.parent.id) %></li>
       <% unless current_user.parent.kids.nil? %>
         <% current_user.parent.kids.each do |kid| %>
           <li><%= link_to kid.name, kid_path(kid) %></li>
         <% end %>
       <% end %>
+      <li><%= link_to 'all kids', parent_path(current_user.parent.id) %></li>
     <% end %>
+    <li><%= link_to 'new kid', new_kid_path %></li>
     <li><%= link_to 'proverbs', verses_path %></li>
     <li><%= link_to 'sign out', destroy_user_session_path, method: "DELETE" %></li>
   </ul>

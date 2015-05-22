@@ -16,10 +16,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: 'Oscar' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Teach me wisdom, #{current_user.parent.name}"%>
   </div>
 <% end %>
