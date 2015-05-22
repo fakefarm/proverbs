@@ -22,20 +22,21 @@
 
 
 <% if user_signed_in? %>
-  <ul>
-    <% unless current_user.parent.nil? %>
-      <% unless current_user.parent.kids.nil? %>
-        <% current_user.parent.kids.each do |kid| %>
-          <li><%= link_to kid.name, kid_path(kid) %></li>
+  <% unless(params[:controller] == 'parents' && params[:action] == 'new') %>
+    <ul>
+      <% unless current_user.parent.nil? %>
+        <% unless current_user.parent.kids.nil? %>
+          <% current_user.parent.kids.each do |kid| %>
+            <li><%= link_to kid.name, kid_path(kid) %></li>
+          <% end %>
         <% end %>
+        <li><%= link_to 'all kids', parent_path(current_user.parent.id) %></li>
       <% end %>
-      <li><%= link_to 'all kids', parent_path(current_user.parent.id) %></li>
-    <% end %>
-    <li><%= link_to 'new kid', new_kid_path %></li>
-    <li><%= link_to 'proverbs', verses_path %></li>
-    <li><%= link_to 'sign out', destroy_user_session_path, method: "DELETE" %></li>
-  </ul>
-    <% end %>
+      <li><%= link_to 'new kid', new_kid_path %></li>
+      <li><%= link_to 'proverbs', verses_path %></li>
+      <li><%= link_to 'sign out', destroy_user_session_path, method: "DELETE" %></li>
+    </ul>
+  <% end %>
 <% else %>
  <%= link_to 'sign up', new_user_registration_path %>
  <%= link_to 'sign in', new_user_session_path %>
