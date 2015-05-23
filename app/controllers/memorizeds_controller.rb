@@ -5,7 +5,7 @@ class MemorizedsController < ApplicationController
 
     respond_to do |format|
       if @mem.save
-        format.html { redirect_to kid_path(@mem.kid_id), notice: 'Kid was successfully created.' }
+        format.html { redirect_to kid_path(@mem.kid_id), notice: "Woo hoo! Go, #{@mem.kid.name}!" }
         format.json { render :show, status: :created, location: @kid }
       else
         format.html { render :new }

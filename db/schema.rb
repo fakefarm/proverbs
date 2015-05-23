@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521225435) do
+ActiveRecord::Schema.define(version: 20150522234244) do
 
   create_table "kids", force: :cascade do |t|
     t.integer  "parent_id"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(version: 20150521225435) do
   end
 
   add_index "parents", ["user_id"], name: "index_parents_on_user_id"
+
+  create_table "practices", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

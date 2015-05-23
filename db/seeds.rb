@@ -1,11 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
+Verse.all.destroy_all
+Practice.all.destroy_all
 
 Verse.create(chapter: 1, verse: 1, text:  "The proverbs of Solomon son of David, king of Israel:")
 Verse.create(chapter: 1, verse: 2, text:  "for gaining wisdom and instruction; for understanding words of insight;")
@@ -40,3 +34,11 @@ Verse.create(chapter: 1, verse: 30, text:  "Since they would not accept my advic
 Verse.create(chapter: 1, verse: 31, text:  "they will eat the fruit of their ways and be filled with the fruit of their schemes.")
 Verse.create(chapter: 1, verse: 32, text:  "For the waywardness of the simple will kill them, and the complacency of fools will destroy them;")
 Verse.create(chapter: 1, verse: 33, text:  "but whoever listens to me will live in safety and be at ease, without fear of harm.'")
+
+
+Practice.create(title: 'read', body: 'read 10 verses');
+Practice.create(title: 'quiz', body: "pick a random verse reference. If they know it do another. if they don't then spend the rest of practice rehersing that one.");
+Practice.create(title: 'listen', body: 'listen to english dude');
+Practice.create(title: 'they read', body: 'let oscar read');
+
+puts 'SEEDED!'
