@@ -3,6 +3,7 @@
   <%= link_to 'sign in', new_user_session_path %>
 <% else %>
   <div id='menu-icon'>menu</div>
+  <small style='font-size:8px;'><%= current_user.email %></small>
   <nav id='menu-nav' class='hide'>
       <% unless(params[:controller] == 'parents' && params[:action] == 'new') %>
       <ul>
