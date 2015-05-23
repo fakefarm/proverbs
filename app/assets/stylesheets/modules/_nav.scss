@@ -1,0 +1,37 @@
+#menu-icon {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+#menu-nav {
+  position: fixed;
+  background: rgba(03,60,90,0.9);
+  a {
+    display: block;
+    padding: 0.5em;
+    margin: 0.25em 0;
+    color: #FFFF00;
+    font-size: 1.5em;
+  }
+}
+
+.hide {
+  left: -400px;
+  top: -230px;
+  bottom: 0;
+  margin-bottom: 10px;
+  transition: all 350ms ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.show {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 70%;
+  transition: all 350ms ease-in-out;
+  visibility: visible;
+  opacity: 1;
+}

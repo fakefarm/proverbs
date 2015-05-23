@@ -1,13 +1,6 @@
 @import 'bourbon';
 @import 'neat';
 @import 'base/base';
+@import 'layout';
 
-p, a {
-  font-size: 3em;
-}
-
-h1 { font-size: 5em; }
-.verse-wrapper {
-  font-size: 2em;
-  margin-bottom: 2em;
-}
+@import 'modules/nav';

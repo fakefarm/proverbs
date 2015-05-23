@@ -1,0 +1,23 @@
+<% unless user_signed_in? %>
+  <%= link_to 'sign up', new_user_registration_path %>
+  <%= link_to 'sign in', new_user_session_path %>
+<% else %>
+  <div id='menu-icon'>menu</div>
+  <nav id='menu-nav' class='hide'>
+      <% unless(params[:controller] == 'parents' && params[:action] == 'new') %>
+      <ul>
+        <% unless current_user.parent.nil? %>
+          <li><%= link_to 'practice', practices_path %></li>
+          <% unless current_user.parent.kids.nil? %>
+            <% current_user.parent.kids.each do |kid| %>
+              <li><%= link_to "#{kid.name}'s path", kid_path(kid) %></li>
+            <% end %>
+          <% end %>
+        <% end %>
+        <li><%= link_to 'proverbs', verses_path %></li>
+        <li><%= link_to 'new kid', new_kid_path %></li>
+        <li><%= link_to 'sign out', destroy_user_session_path, method: "DELETE" %></li>
+      </ul>
+    <% end %>
+  </nav>
+<% end %>
