@@ -1,7 +1,17 @@
 <div class="intro">
-  <%= link_to 'proverbs', verses_path %>
-  <p>Memorize proverbs by teaching them to your children.</p>
+  <h2>
+    memorize
+    <%= link_to 'proverbs', verses_path %>
+  </h2>
+  <p>Track of your child's progress and memorize with different practice suggestions.</p>
+  <h3><%= link_to "sign up", new_user_registration_path %></h3>
+  <b>Why Memorize Proverbs</b>
   <%= link_to 'https://www.youtube.com/embed/iAYEcKZXebw?rel=0', target: '_blank' do  %>
   <%= image_tag 'wells.jpg' %>
   <% end %>
+  <p>Proverbs is a book of guidance for parents to teach their children. Memorizing proverbs gives your child a moral compass and respect for life. Proverbs admonishes children to avoid fools and pursue wisdom.</p>
+  <p>Proverbs is a great topic of conversation in the car, at bed, and over meal time. You will be encouraged and inspired by their ability to memorize by simple repetition. As a bonus, you will end up memorizing it too!</p>
 </div>
+
+<%= link_to 'sign up', new_user_registration_path %>
+<%= link_to 'sign in', new_user_session_path %>
