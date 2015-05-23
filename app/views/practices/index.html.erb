@@ -1,4 +1,6 @@
-
+<% if current_user.parent.kids.empty? %>
+  <h1><%= link_to "Add your first born", new_kid_path %></h1>
+<% end %>
 <a href="" title="">try a different practice</a>
 <h3><%= @practice.title %></h3>
 <p><%= @practice.body %></p>
