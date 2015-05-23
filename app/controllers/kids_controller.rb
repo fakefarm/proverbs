@@ -10,9 +10,9 @@ class KidsController < ApplicationController
   def show
     @verses = @kid.memorizeds
     @current = if @verses.last
-        Verse.find(@verses.max.verse_id + 1)
+        Verse.find(@verses.max.verse.ref_id + 1)
       else
-        Verse.find_by_verse(1)
+        Verse.find_by_ref_id(1)
       end
   end
 

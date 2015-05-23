@@ -1,5 +1,10 @@
-<a href="" title="">try another</a>
 
-<h1><%= @practice.title %></h1>
+<a href="" title="">try a different practice</a>
+<h3><%= @practice.title %></h3>
 <p><%= @practice.body %></p>
+<% if @practice.example.present? %>
+  <b>example</b>
+  <p><%= @practice.example %></p>
+<% end %>
+
 

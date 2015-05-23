@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20150522234244) do
   create_table "practices", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
+    t.string   "example"
+    t.string   "video"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,8 +70,11 @@ ActiveRecord::Schema.define(version: 20150522234244) do
     t.string   "text"
     t.integer  "chapter"
     t.integer  "verse"
+    t.integer  "ref_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "verses", ["ref_id"], name: "index_verses_on_ref_id"
 
 end
