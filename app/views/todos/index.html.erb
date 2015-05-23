@@ -1,0 +1,13 @@
+<% if @progress %>
+<h1>todo list..</h1>
+<% @todos.each do |t| %>
+  <p><%= t.title %></p>
+  <%= form_tag(todo_path(t), method: :patch )  do %>
+    <%= hidden_field_tag 'parent_id', t.parent_id %>
+    <%= hidden_field_tag 'status', true %>
+    <%= submit_tag("done") %>
+  <% end %>
+<% end %>
+<% else %>
+  <h1>You're caught up!</h1>
+<% end %>
