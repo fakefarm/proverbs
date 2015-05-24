@@ -9,7 +9,13 @@
   <%= submit_tag("Memorized!") %>
 <% end %>
 
+
 <hr>
+<% if @undo %>
+  <div>
+    <%= link_to 'Undo last verse', memorized_path(@undo.id), method: :delete %>
+  </div>
+<% end %>
 <b>Completed verses</b>
 <% @verses.each do |v| %>
 <p><b><%= v.verse.verse %></b> <%= v.verse.text %></p>

@@ -14,6 +14,12 @@ class MemorizedsController < ApplicationController
     end
   end
 
+  def destroy
+    m = Memorized.find(params[:id])
+    m.destroy
+    redirect_to :back
+  end
+
   private
 
     def mem_params
