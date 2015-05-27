@@ -1,6 +1,13 @@
+<div class="logo">
+  <%= link_to 'proverbs', root_path %>
+</div>
 <% unless user_signed_in? %>
-  <%= link_to 'sign up', new_user_registration_path %>
-  <%= link_to 'sign in', new_user_session_path %>
+<div class="sign-in-up">
+  <ul>
+    <li><%= link_to 'sign up', new_user_registration_path %></li>
+    <li><%= link_to 'sign in', new_user_session_path %></li>
+  </ul>
+</div>
 <% else %>
   <div id='menu-icon'>menu</div>
   <small style='font-size:8px;'><%= current_user.email %></small>

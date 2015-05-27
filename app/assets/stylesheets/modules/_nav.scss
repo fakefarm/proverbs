@@ -36,3 +36,25 @@
   visibility: visible;
   opacity: 1;
 }
+
+.logo {
+  text-align: center;
+  a {
+    margin-bottom: 2em;
+  }
+}
+
+.sign-in-up {
+  @include row();
+  li {
+    @include span-columns(6);
+    margin-top: 1em;
+    a {
+      display: block;
+      background: $light-gray;
+      padding: 0.6em;
+      text-align: center;
+    }
+  }
+}
+
