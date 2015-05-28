@@ -5,7 +5,8 @@ class ParentsController < ApplicationController
 
 
   def index
-    @parents = Parent.all
+    @count = User.count
+    @users = User.all
   end
 
   def show
