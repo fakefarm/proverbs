@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'about' => 'pages#about', as: :about
   get 'contact' => 'pages#contact', as: :contact
+  get 'getting-started' => 'pages#getting_started', as: :getting_started
   devise_for :users, controllers: { registrations: 'registrations'}
 
   resources :verses
