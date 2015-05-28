@@ -1,22 +1,24 @@
-<h1><%= @kid.name %></h1>
-<b>Current Verse</b>
-<p><b><%= @current.verse %></b> <%= @current.text %></p>
+<div class="l-wrapper">
+  <h1><%= @kid.name %></h1>
+  <b>Current Verse</b>
+  <p><b><%= @current.verse %></b> <%= @current.text %></p>
 
-<%= form_tag("/memorizeds", method: :post) do %>
-  <%= hidden_field_tag 'kid_id', @kid.id %>
-  <%= hidden_field_tag 'ref_id', @current.ref_id %>
-  <%= hidden_field_tag 'verse_id', @current.id %>
-  <%= submit_tag("Memorized!") %>
-<% end %>
+  <%= form_tag("/memorizeds", method: :post) do %>
+    <%= hidden_field_tag 'kid_id', @kid.id %>
+    <%= hidden_field_tag 'ref_id', @current.ref_id %>
+    <%= hidden_field_tag 'verse_id', @current.id %>
+    <%= submit_tag("Memorized!") %>
+  <% end %>
 
 
-<hr>
-<% if @undo %>
-  <div>
-    <%= link_to 'Undo last verse', memorized_path(@undo.id), method: :delete %>
-  </div>
-<% end %>
-<b>Completed verses</b>
-<% @verses.each do |v| %>
-<p><b><%= v.verse.verse %></b> <%= v.verse.text %></p>
-<% end %>
+  <hr>
+  <% if @undo %>
+    <div>
+      <%= link_to 'Undo last verse', memorized_path(@undo.id), method: :delete %>
+    </div>
+  <% end %>
+  <b>Completed verses</b>
+  <% @verses.each do |v| %>
+  <p><b><%= v.verse.verse %></b> <%= v.verse.text %></p>
+  <% end %>
+</div>
