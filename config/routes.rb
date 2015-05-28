@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :practices
 
   root 'pages#index'
+  get 'about' => 'pages#about', as: :about
+  get 'contact' => 'pages#contact', as: :contact
   devise_for :users, controllers: { registrations: 'registrations'}
 
   resources :verses
