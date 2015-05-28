@@ -8,6 +8,7 @@
   position: fixed;
   overflow: scroll;
   background: rgba(03,60,90,0.9);
+  z-index: 10;
   a {
     display: block;
     padding: 0.5em;
@@ -48,12 +49,14 @@
   @include row();
   li {
     @include span-columns(6);
-    margin-top: 1em;
+    margin-top: 0.5em;
     a {
       display: block;
       background: $light-gray;
+      border: #585858;
       padding: 0.6em;
       text-align: center;
+      border-radius: 4px;
     }
   }
 }

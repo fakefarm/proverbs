@@ -2,7 +2,7 @@
   <%= link_to 'proverbs', root_path %>
 </div>
 <% unless user_signed_in? %>
-<div class="sign-in-up">
+<div class="sign-in-up l-wrapper">
   <ul>
     <li><%= link_to 'sign up', new_user_registration_path %></li>
     <li><%= link_to 'sign in', new_user_session_path %></li>
@@ -10,7 +10,6 @@
 </div>
 <% else %>
   <div id='menu-icon'>menu</div>
-  <small style='font-size:8px;'><%= current_user.email %></small>
   <nav id='menu-nav' class='hide'>
       <% unless(params[:controller] == 'parents' && params[:action] == 'new') %>
       <ul>
