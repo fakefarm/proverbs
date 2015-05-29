@@ -1,7 +1,7 @@
 <div class="l-wrapper">
   <h1><%= @kid.name %></h1>
-  <b>Current Verse</b>
-  <p><b><%= @current.verse %></b> <%= @current.text %></p>
+  <b>Current Verse: <%= @current.verse %></b>
+  <h2 class='current-verse'><%= @current.text %></h2>
 
   <%= form_tag("/memorizeds", method: :post) do %>
     <%= hidden_field_tag 'kid_id', @kid.id %>

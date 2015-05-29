@@ -2,12 +2,14 @@
   <%= link_to 'proverbs', root_path %>
 </div>
 <% unless user_signed_in? %>
-<div class="sign-in-up l-wrapper">
-  <ul>
-    <li><%= link_to 'sign up', new_user_registration_path %></li>
-    <li><%= link_to 'sign in', new_user_session_path %></li>
-  </ul>
-</div>
+  <% unless request.env['PATH_INFO'] =~ /sign_in/ || request.env['PATH_INFO'] =~ /sign_up/%>
+    <div class="sign-in-up l-wrapper">
+      <ul>
+        <li><%= link_to 'sign up', new_user_registration_path %></li>
+        <li><%= link_to 'sign in', new_user_session_path %></li>
+      </ul>
+    </div>
+  <% end %>
 <% else %>
   <div id='menu-icon'>menu</div>
   <nav id='menu-nav' class='hide'>
